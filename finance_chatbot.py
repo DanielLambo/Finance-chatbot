@@ -7,7 +7,7 @@ import altair as alt
 # Set up the Streamlit app
 st.title('Ask Me Anything About The Cozy Corner BNB')
 st.image('/Users/daniellambo/Finance chatbot/Flux_Dev_create_a_2d_cartoon_image_of_a_confident_and_professi_3.jpeg', width=300,)
-st.write('Hi, I\'m Devon, your AI financial consultant. Nice to meet you! I\'m here to help you take control of your business finances, website creation and marketing. I\'ll securely manage your data and answer your questions about marketing, business strategy, and all things finance. Look below to see how your current social and financial metrics look!')
+st.write('Hi, I\'m Devon, your AI business consultant. Nice to meet you! I\'m here to help you take control of your business finances, website creation and marketing. I\'ll securely manage your data and answer your questions about marketing, business strategy, and all things finance. Look below to see how your current social and financial metrics look!')
 
 # Business information
 business_info = {
@@ -81,7 +81,7 @@ The {business_info["number_of_bathrooms"]} sparkled. Thankfully, I didn't have t
 
 This year had been good. My {business_info["weekly_revenue"]} came in consistently each week, adding up to a healthy {business_info["monthly_revenue"]} and a satisfying {business_info["yearly_revenue"]}. My {business_info["average_monthly_review"]} was a source of pride. Of course, running a BNB wasn't without its challenges. My {business_info["maintenance_cost_yearly"]} seemed to climb every year, and my {business_info["staffing_cost_yearly"]} was a significant expense. {business_info["supplies"]}, {business_info["insurance"]}, {business_info["utilities"]}, and {business_info["cleaning"]} all added up. And then there were the unavoidable {business_info["taxes"]}. All these expenses, totaling {business_info["total_expenses"]}, had to be carefully managed.
 
-But the numbers told a positive story. With a total revenue of {business_info["total_revenue"]}, my {business_info["net_profit"]} was a respectable sum. There was no {business_info["annual_loss"]}, only a healthy {business_info["annual_profit"]}. My {business_info["rev_par"]} was steady, a good sign. I was pleased with the {business_info["current_business_growth"]} and excited about the future of The Cozy Corner BNB. As the first guests came down for breakfast, I knew I was doing what I loved, creating a welcoming home away from home., my business has grown since i started using easybiz , they use a reply guy api to webscrape and reply under comments to promte me and their no code website solution is a great idea, this is the first time i am ever digitizing my business though
+But the numbers told a positive story. With a total revenue of {business_info["total_revenue"]}, my {business_info["net_profit"]} was a respectable sum. There was no {business_info["annual_loss"]}, only a healthy {business_info["annual_profit"]}. My {business_info["rev_par"]} was steady, a good sign. I was pleased with the {business_info["current_business_growth"]} and excited about the future of The Cozy Corner BNB. As the first guests came down for breakfast, I knew I was doing what I loved, creating a welcoming home away from home., my business has grown since i started using easybiz , they use a reply guy api to webscrape and reply under comments to promte me and their no code website solution is a great idea, this is the first time i am ever digitizing my business though, i know nothing about tech at all, so this llm is all the help i have
 """
 
 # Chat interface
