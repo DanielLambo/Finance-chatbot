@@ -11,8 +11,9 @@ import google.generativeai as genai
 
 load_dotenv()
 #gemini_api_key = os.getenv("gemini_api_key")
-st.write(gemini_api_key)
-# Set up the Streamlit app
+if not os.getenv("gemini_api_key"):
+    os.environ["gemini_api_key"] = "your_api_key_here
+    # Set up the Streamlit app
 st.title('Ask Me Anything About The Cozy-Corner BNB')
 st.image('Flux_Dev_create_a_2d_cartoon_image_of_a_confident_and_professi_3.jpeg', width=300,)
 st.write('Hi, I\'m Devon, your AI business consultant. Nice to meet you! I\'m here to help you take control of your business finances, website creation and marketing. I\'ll securely manage your data and answer your questions about marketing, business strategy, and all things finance. Look below to see how your current social and financial metrics look!')
