@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 gemini_api_key = os.getenv("gemini_api_key")
+st.write(gemini_api_key)
 # Set up the Streamlit app
 st.title('Ask Me Anything About The Cozy Corner BNB')
 st.image('Flux_Dev_create_a_2d_cartoon_image_of_a_confident_and_professi_3.jpeg', width=300,)
