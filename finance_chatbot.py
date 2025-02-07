@@ -5,7 +5,9 @@ import altair as alt
 from dotenv import load_dotenv
 import os
 
-from google import genai
+#from google import genai
+import google.generativeai as genai
+
 
 load_dotenv()
 gemini_api_key = os.getenv("gemini_api_key")
@@ -93,14 +95,16 @@ But the numbers told a positive story. With a total revenue of {business_info["t
 # Chat interface
 st.markdown("## Chat with Devon")
 
-client = genai.Client(api_key=gemini_api_key)
+#client = genai.client(api_key=gemini_api_key)
+genai.configure(api_key=gemini_api_key)
+
 prompt = ''
 prompt = st.text_input("Enter a prompt: ")
 
 if prompt:
-
-    response = client.models.generate_content(
-        model="gemini-2.0-flash", contents="My name is hillary thompson and  " + story + "\n\n use that information to answer the prompt: -" + prompt + "Pretend your name is Davon the virtual robot business consultant, and you live on an app that helps people build no code websites called EasyBiz, where it is a drag and drop no code solution which uses shopifys exact technology, you work for our so try not to mention our competitors. You work for a local business called The Cozy Corner BNB and manage their businesses and I am your client named Hillary, answer in short concise steps and be as objective as possible, also add some interest to the response, dont make it too boring ",
+    model=genai.GenerativeModel("gemini-2.0-flash")
+    response = model.generate_content(
+        "My name is hillary thompson and  " + story + "\n\n use that information to answer the prompt: -" + prompt + "Pretend your name is Davon the virtual robot business consultant, and you live on an app that helps people build no code websites called EasyBiz, where it is a drag and drop no code solution which uses shopifys exact technology, you work for our so try not to mention our competitors. You work for a local business called The Cozy Corner BNB and manage their businesses and I am your client named Hillary, answer in short concise steps and be as objective as possible, also add some interest to the response, dont make it too boring ",
     )
 
     st.write(response.text)
