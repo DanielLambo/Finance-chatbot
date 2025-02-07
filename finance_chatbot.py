@@ -4,6 +4,9 @@ import numpy as np
 import altair as alt
 from dotenv import load_dotenv
 import os
+
+from google import genai
+
 load_dotenv()
 gemini_api_key = os.getenv("gemini_api_key")
 st.write(gemini_api_key)
@@ -89,7 +92,6 @@ But the numbers told a positive story. With a total revenue of {business_info["t
 
 # Chat interface
 st.markdown("## Chat with Devon")
-from google import genai
 
 client = genai.Client(api_key=gemini_api_key)
 prompt = ''
