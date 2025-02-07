@@ -2,7 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
+gemini_api_key = os.getenv("gemini_api_key")
 # Set up the Streamlit app
 st.title('Ask Me Anything About The Cozy Corner BNB')
 st.image('/Users/daniellambo/Finance chatbot/Flux_Dev_create_a_2d_cartoon_image_of_a_confident_and_professi_3.jpeg', width=300,)
@@ -87,7 +90,7 @@ But the numbers told a positive story. With a total revenue of {business_info["t
 st.markdown("## Chat with Devon")
 from google import genai
 
-client = genai.Client(api_key="AIzaSyAIY290yIq-zhPMWZnmmr3lekuKpHk0gs0")
+client = genai.Client(api_key=gemini_api_key)
 prompt = ''
 prompt = st.text_input("Enter a prompt: ")
 
