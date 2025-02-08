@@ -136,12 +136,13 @@ with colA:
 with colB:
     st.altair_chart(website_chart, use_container_width=True)
 
-# Chat interface: Sticky footer at the bottom of the page
+# Custom CSS to fix the chat bar to the bottom and avoid content overlap
 st.markdown(
     """
     <style>
     .chat-footer {
         position: fixed;
+        left: 0;
         bottom: 0;
         width: 100%;
         background-color: #f9f9f9;
@@ -163,11 +164,16 @@ st.markdown(
         border: none;
         border-radius: 4px;
     }
+    /* Ensure main content does not get hidden behind the chat footer */
+    .main .block-container {
+        padding-bottom: 120px;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
+# Chat interface wrapped in a fixed footer div
 st.markdown('<div class="chat-footer">', unsafe_allow_html=True)
 st.markdown("## Chat with Devon")
 genai.configure(api_key=gemini_api_key)
