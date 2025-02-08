@@ -4,17 +4,14 @@ import numpy as np
 import altair as alt
 from dotenv import load_dotenv
 import os
-
-#from google import genai
 import google.generativeai as genai
-
 
 load_dotenv()
 gemini_api_key = os.getenv("gemini_api_key")
 
-    # Set up the Streamlit app
+# Set up the Streamlit app
 st.title('Ask Me Anything About The Cozy-Corner BNB')
-st.image('Flux_Dev_create_a_2d_cartoon_image_of_a_confident_and_professi_3.jpeg', width=300,)
+st.image('Flux_Dev_create_a_2d_cartoon_image_of_a_confident_and_professi_3.jpeg', width=300)
 st.write('Hi, I\'m Devon, your AI business consultant. Nice to meet you! I\'m here to help you take control of your business finances, website creation and marketing. I\'ll securely manage your data and answer your questions about marketing, business strategy, and all things finance. Look below to see how your current social and financial metrics look!')
 
 # Business information
@@ -92,24 +89,8 @@ This year had been good. My {business_info["weekly_revenue"]} came in consistent
 But the numbers told a positive story. With a total revenue of {business_info["total_revenue"]}, my {business_info["net_profit"]} was a respectable sum. There was no {business_info["annual_loss"]}, only a healthy {business_info["annual_profit"]}. My {business_info["rev_par"]} was steady, a good sign. I was pleased with the {business_info["current_business_growth"]} and excited about the future of The Cozy Corner BNB. As the first guests came down for breakfast, I knew I was doing what I loved, creating a welcoming home away from home., my business has grown since i started using easybiz , they use a reply guy api to webscrape and reply under comments to promte me and their no code website solution is a great idea, this is the first time i am ever digitizing my business though, i know nothing about tech at all, so this llm is all the help i have
 """
 
-# Chat interface
-st.markdown("## Chat with Devon")
-
-#client = genai.client(api_key=gemini_api_key)
-genai.configure(api_key=gemini_api_key)
-
-prompt = ''
-prompt = st.text_input("Enter a prompt: ")
-
-if prompt:
-    model=genai.GenerativeModel("gemini-2.0-flash")
-    response = model.generate_content(
-        "My name is hillary thompson and  " + story + "\n\n use that information to answer the prompt: -" + prompt + "Pretend your name is Davon the virtual robot business consultant, and you live on an app that helps people build no code websites called EasyBiz, where it is a drag and drop no code solution which uses shopifys exact technology, you work for our so try not to mention our competitors. You work for a local business called The Cozy Corner BNB and manage their businesses and I am your client named Hillary, answer in short concise steps and be as objective as possible, also add some interest to the response, dont make it too boring ",
-    )
-
-    st.write(response.text)
-
-    st.markdown("## Online Engagement Metrics")
+# Online Engagement Metrics
+st.markdown("## Online Engagement Metrics")
 
 # Create DataFrame for social media clicks
 social_data = pd.DataFrame({
@@ -154,3 +135,47 @@ with colA:
     st.altair_chart(social_chart, use_container_width=True)
 with colB:
     st.altair_chart(website_chart, use_container_width=True)
+
+# Chat interface: Sticky footer at the bottom of the page
+st.markdown(
+    """
+    <style>
+    .chat-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        z-index: 100;
+    }
+    .chat-footer input {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .chat-footer button {
+        padding: 10px 20px;
+        margin-left: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown('<div class="chat-footer">', unsafe_allow_html=True)
+st.markdown("## Chat with Devon")
+genai.configure(api_key=gemini_api_key)
+prompt = st.text_input("Enter a prompt: ")
+if prompt:
+    model = genai.GenerativeModel("gemini-2.0-flash")
+    response = model.generate_content(
+        "My name is hillary thompson and  " + story + "\n\n use that information to answer the prompt: -" + prompt + " Pretend your name is Davon the virtual robot business consultant, and you live on an app that helps people build no code websites called EasyBiz, where it is a drag and drop no code solution which uses shopifys exact technology, you work for our so try not to mention our competitors. You work for a local business called The Cozy Corner BNB and manage their businesses and I am your client named Hillary, answer in short concise steps and be as objective as possible, also add some interest to the response, dont make it too boring "
+    )
+    st.write(response.text)
+st.markdown('</div>', unsafe_allow_html=True)
