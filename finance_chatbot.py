@@ -90,6 +90,20 @@ But the numbers told a positive story. With a total revenue of {business_info["t
 """
 
 # Online Engagement Metrics
+
+# Chat interface wrapped in a fixed footer div
+st.markdown('<div class="chat-footer">', unsafe_allow_html=True)
+st.markdown("## Chat with Devon")
+genai.configure(api_key=gemini_api_key)
+prompt = st.text_input("Enter a prompt: ")
+if prompt:
+    model = genai.GenerativeModel("gemini-2.0-flash")
+    response = model.generate_content(
+        "My name is hillary thompson and  " + story + "\n\n use that information to answer the prompt: -" + prompt + " Pretend your name is Davon the virtual robot business consultant, and you live on an app that helps people build no code websites called EasyBiz, where it is a drag and drop no code solution which uses shopifys exact technology, you work for our so try not to mention our competitors. You work for a local business called The Cozy Corner BNB and manage their businesses and I am your client named Hillary, answer in short concise steps and be as objective as possible, also add some interest to the response, dont make it too boring "
+    )
+    st.write(response.text)
+st.markdown('</div>', unsafe_allow_html=True)
+
 st.markdown("## Online Engagement Metrics")
 
 # Create DataFrame for social media clicks
@@ -173,15 +187,3 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Chat interface wrapped in a fixed footer div
-st.markdown('<div class="chat-footer">', unsafe_allow_html=True)
-st.markdown("## Chat with Devon")
-genai.configure(api_key=gemini_api_key)
-prompt = st.text_input("Enter a prompt: ")
-if prompt:
-    model = genai.GenerativeModel("gemini-2.0-flash")
-    response = model.generate_content(
-        "My name is hillary thompson and  " + story + "\n\n use that information to answer the prompt: -" + prompt + " Pretend your name is Davon the virtual robot business consultant, and you live on an app that helps people build no code websites called EasyBiz, where it is a drag and drop no code solution which uses shopifys exact technology, you work for our so try not to mention our competitors. You work for a local business called The Cozy Corner BNB and manage their businesses and I am your client named Hillary, answer in short concise steps and be as objective as possible, also add some interest to the response, dont make it too boring "
-    )
-    st.write(response.text)
-st.markdown('</div>', unsafe_allow_html=True)
