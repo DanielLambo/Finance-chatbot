@@ -6,10 +6,18 @@ from dotenv import load_dotenv
 import os
 import google.generativeai as genai
 
+
+
 load_dotenv()
 gemini_api_key = os.getenv("gemini_api_key")
 st.write(gemini_api_key)
 
+
+gemini_api_key = st.secrets["AIzaSyAIY290yIq-zhPMWZnmmr3lekuKpHk0gs0"]  # Access the secret
+
+if gemini_api_key is None:
+    st.error("API key not found. Please set the secret MY_API_KEY in Streamlit Cloud.")
+    st.stop()
 # Set up the Streamlit app
 st.title('Ask Me Anything About The Cozy-Corner BNB')
 st.image('Flux_Dev_create_a_2d_cartoon_image_of_a_confident_and_professi_3.jpeg', width=300)
