@@ -8,6 +8,7 @@ import google.generativeai as genai
 
 load_dotenv()
 gemini_api_key = os.getenv("gemini_api_key")
+st.write(gemini_api_key)
 
 # Set up the Streamlit app
 st.title('Ask Me Anything About The Cozy-Corner BNB')
