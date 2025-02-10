@@ -12,8 +12,8 @@ load_dotenv()
 gemini_api_key = os.getenv("gemini_api_key")
 st.write(gemini_api_key)
 
-
-gemini_api_key = st.secrets["AIzaSyAIY290yIq-zhPMWZnmmr3lekuKpHk0gs0"]  # Access the secret
+if not gemini_api_key:
+    gemini_api_key = st.secrets["gemini_api_key"]  # Access the secret
 
 if gemini_api_key is None:
     st.error("API key not found. Please set the secret MY_API_KEY in Streamlit Cloud.")
