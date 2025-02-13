@@ -19,7 +19,7 @@ if gemini_api_key is None:
     st.stop()
 # Set up the Streamlit app
 st.title('Ask Me Anything About The Cozy-Corner BNB')
-st.image('Flux_Dev_create_a_2d_cartoon_image_of_a_confident_and_professi_3.jpeg', width=300)
+st.image('A 2D cartoon image, gentle soft light, cast bronze surface, antique patina finish, depicting an African American business consultant for EasyBiz, Devon, with a magic wand in his pocket and a name tag, diffused shadows, subtle illumination.jpg', width=300)
 st.write('Hi, I\'m Devon, your AI business consultant. Nice to meet you! I\'m here to help you take control of your business finances, website creation and marketing. I\'ll securely manage your data and answer your questions about marketing, business strategy, and all things finance. Look below to see how your current social and financial metrics look!')
 
 # Business information
